@@ -1,0 +1,6 @@
+[package]
+name = "COME2105-2026-TEAM01"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
