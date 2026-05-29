@@ -1,0 +1,10 @@
+[package]
+name = "COME2105-2026-TEAM01"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+egui = "0.27.0"
+eframe = { version = "0.27.0", features = ["glow"] } # 맥/윈도우 공통 그래픽 백엔드
+serde = { version = "1.0", features = ["derive"] }    # 팀원 C의 데이터 저장을 위한 라이브러리
+serde_json = "1.0"
