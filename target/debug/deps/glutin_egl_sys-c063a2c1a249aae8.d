@@ -1,0 +1,10 @@
+C:\Users\qc518\Downloads\algo-sketch-fixed\algo-sketch\target\debug\deps\glutin_egl_sys-c063a2c1a249aae8.d: C:\Users\qc518\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\glutin_egl_sys-0.6.0\src\lib.rs C:\Users\qc518\Downloads\algo-sketch-fixed\algo-sketch\target\debug\build\glutin_egl_sys-bd4974fca1f1e0fc\out/egl_bindings.rs
+
+C:\Users\qc518\Downloads\algo-sketch-fixed\algo-sketch\target\debug\deps\libglutin_egl_sys-c063a2c1a249aae8.rlib: C:\Users\qc518\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\glutin_egl_sys-0.6.0\src\lib.rs C:\Users\qc518\Downloads\algo-sketch-fixed\algo-sketch\target\debug\build\glutin_egl_sys-bd4974fca1f1e0fc\out/egl_bindings.rs
+
+C:\Users\qc518\Downloads\algo-sketch-fixed\algo-sketch\target\debug\deps\libglutin_egl_sys-c063a2c1a249aae8.rmeta: C:\Users\qc518\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\glutin_egl_sys-0.6.0\src\lib.rs C:\Users\qc518\Downloads\algo-sketch-fixed\algo-sketch\target\debug\build\glutin_egl_sys-bd4974fca1f1e0fc\out/egl_bindings.rs
+
+C:\Users\qc518\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\glutin_egl_sys-0.6.0\src\lib.rs:
+C:\Users\qc518\Downloads\algo-sketch-fixed\algo-sketch\target\debug\build\glutin_egl_sys-bd4974fca1f1e0fc\out/egl_bindings.rs:
+
+# env-dep:OUT_DIR=C:\\Users\\qc518\\Downloads\\algo-sketch-fixed\\algo-sketch\\target\\debug\\build\\glutin_egl_sys-bd4974fca1f1e0fc\\out
