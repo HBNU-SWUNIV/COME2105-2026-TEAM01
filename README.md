@@ -6,7 +6,7 @@
 
 ## 기술 스택
 - **Language**: Rust (Core Logic & Engine)
-- **UI Framework**: Qt (GUI & Visualization Layer)
+- **UI Framework**: egui (GUI & Visualization Layer)
 
 ## 핵심 기능
 - **DFS (깊이 우선 탐색) 시각화**
@@ -21,6 +21,6 @@
 ├── src
 │   ├── main.rs             # 프로그램 실행 시작점
 │   ├── graph/              # 그래프 데이터 구조 및 탐색 엔진 (Rust)
-│   └── ui/                 # Qt 기반 GUI 창 및 애니메이션 레이아웃 (Qt)
+│   └── ui/                 # egui 기반 GUI 창 및 애니메이션 레이아웃 
 ├── Cargo.toml              # Rust 패키지 및 Qt 라이브러리 의존성 관리
 └── README.md               # 본 프로젝트 설명서
