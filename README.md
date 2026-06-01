@@ -5,17 +5,26 @@
 > 그래프 알고리즘 시각화 및 성능 분석 학습 플랫폼
 
 **소프트웨어공학 팀 프로젝트 | COME2105-2026-TEAM01**  
-엄예지(20247141) , 김고운(20247137) , 권경빈(20247144)
+- 엄예지(20247141)
+- 김고운(20247137) 
+- 권경빈(20247144)
 
 ---
 
-## 프로젝트 소개
+## 01.프로젝트 소개
 
-Algo-Caster는 그래프 탐색 알고리즘의 동작 과정을 실시간으로 시각화하여  
-학습자의 이해를 돕는 **데스크톱 기반 교육용 애플리케이션**입니다.
+### 개발 목적
+기존 텍스트 중심 학습 방식은 그래프 탐색 알고리즘의 흐름을 시각적으로 이해하기 어렵다는 한계가 있습니다.본 프로젝트는 알고리즘 동작 과정을 실시간으로 시각화하여 탐색 순서·방문 상태·경로 변화를 직관적으로 학습할 수 있도록 하고, 성능 데이터 분석을 통해 알고리즘의 효율성을 비교할 수 있는 환경을 제공합니다. 
 
-사용자는 그래프를 직접 그리고, 알고리즘을 선택해 실행하면  
-탐색 순서·방문 상태·경로 변화를 단계별 애니메이션으로 확인할 수 있습니다.
+
+### 프로젝트 개요
+Algo-Caster는 그래프 탐색 알고리즘 학습을 지원하는 **데스크톱 기반 교육용 애플리케이션**입니다. BFS, DFS, Dijkstra, Bellman-Ford, Floyd-Warshall, A*, Prim, Kruskal에 더해 위상 정렬, 양방향 BFS를 포함한 **총 10종의 알고리즘**을 지원하며,Undo/Redo, 실행 이력 저장, 타이머 기반 애니메이션 속도 고정 기능을 제공합니다.
+외부 API나 LLM 없이 로컬 환경에서 **100% 독립 실행**됩니다.
+
+
+### 프로젝트 차별성 
+본 프로젝트는 교육용 애플리케이션에서 흔히 사용되는 Python, Java 등의 언어 대신 **Rust**를 채택하여 메모리 안전성과 높은 실행 성능을 직접 경험하고, 모든 알고리즘 로직을 외부 라이브러리 없이 순수하게 구현함으로써 자료구조와 알고리즘에 대한 깊은 이해와 차별성을 추구하였습니다.
+
 
 ---
 
@@ -69,10 +78,52 @@ Algo-Caster는 그래프 탐색 알고리즘의 동작 과정을 실시간으로
 각자 담당 브랜치에서 작업 후 Pull Request를 통해 main에 머지합니다.
 
 ```
-main
- ├── feat/yeji-setup  ·  엄예지  —  UI & 인터랙션
- ├── kowoon           ·  김고운  —  알고리즘 엔진
- └── kyeongbin        ·  권경빈  —  성능 분석 & 스토리지
+src/
+├── main.rs                          # 진입점, 한글 폰트 설정 (엄예지)
+│
+├── ui/
+│   ├── mod.rs                       # UI 모듈 선언 (공용)
+│   └── app.rs                       # 메인 App 구조체, 전체 UI 레이아웃 (엄예지)
+│                                    # - 그래프 렌더링, 마우스 이벤트 처리
+│                                    # - 알고리즘 실행 제어, 애니메이션
+│                                    # - Undo/Redo 버튼 및 단축키
+│                                    # - 하단 히스토리 탭 UI
+│
+├── algorithm/
+│   ├── mod.rs                       # 알고리즘 모듈 선언 (공용)
+│   ├── state.rs                     # StateSnapshot, AlgorithmKind 타입 정의 (공용)
+│   ├── bfs.rs                       # BFS 구현 (김고운)
+│   ├── dfs.rs                       # DFS 구현 (김고운)
+│   ├── dijkstra.rs                  # Dijkstra 구현 (김고운)
+│   ├── bellman_ford.rs              # Bellman-Ford 구현 (김고운)
+│   ├── floyd_warshall.rs            # Floyd-Warshall 구현 (김고운)
+│   ├── astar.rs                     # A* 구현 (김고운)
+│   ├── prim.rs                      # Prim MST 구현 (김고운)
+│   ├── kruskal.rs                   # Kruskal MST 구현 (김고운)
+│   ├── topological_sort.rs          # 위상 정렬 구현 (김고운)
+│   └── bidirectional_bfs.rs         # 양방향 BFS 구현 (김고운)
+│
+├── graph/
+│   ├── mod.rs                       # Node, Edge, Graph 자료구조 정의 (공용)
+│   └── history.rs                   # Undo/Redo Command Pattern (김고운)
+│
+├── performance/
+│   ├── mod.rs                       # 성능 모듈 선언 (공용)
+│   ├── tracker.rs                   # 실행 시간 측정 (공용)
+│   ├── stats.rs                     # 알고리즘 비교 통계 집계 (공용)
+│   ├── predictor.rs                 # 시간복잡도 기반 성능 예측 (권경빈)
+│   └── benchmark.rs                 # 반복 실행 벤치마크 (권경빈)
+│
+├── storage/
+│   ├── mod.rs                       # 스토리지 모듈 선언 (공용)
+│   ├── serializer.rs                # 그래프 JSON 저장 (권경빈)
+│   ├── deserializer.rs              # 그래프 JSON 불러오기 (권경빈)
+│   ├── validator.rs                 # 저장 데이터 무결성 검증 (권경빈)
+│   └── session_history.rs           # 실행 이력 JSONL 영속화 (권경빈)
+│
+└── visualization/
+├── mod.rs                       # 시각화 모듈 선언 (공용)
+└── dashboard.rs                 # 성능 분석 대시보드 차트 (권경빈)
 ```
 ---
 
@@ -120,4 +171,17 @@ cargo build --release
 
 
 ---
+
+
+## 02. 프로젝트 기능 / 비기능 요구사항
+**링크 첨부**
+> https://docs.google.com/document/d/1aeCucp2RI11GnjC4XQnUziRYXX3LSS7MZAOCEkgxRho/edit?tab=t.xqmgtbpojhp8 
+
+--- 
+
+
+## 03.프로젝트 테스트 케이스 (TC)
+**링크 첨부**
+> https://docs.google.com/spreadsheets/d/11FKeUdD_nu-CDD9Jcqdgdqp1TQTUlKztEiy8LbUBOHY/edit?usp=sharing
+
 
